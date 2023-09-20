@@ -3,25 +3,199 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --bg-color: hsl(234, 29%, 20%);
+  --pr-color: hsl(4, 100%, 67%);
+  --f-color: hsl(0, 0%, 100%);
+  --f-dark-color: hsl(235, 18%, 26%);
+  --f-light-color: hsl(231, 7%, 60%);
+
+  --fs: 16px;
+  --fw-bold: 700;
+  --fw-light: 400;
+
+  --padding: 16px
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+body,
+html {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-color);
+  height: 100vh;
+  height: 100dvh;
+  color: var(--f-dark-color);
+  font-size: var(--fs);
+  font-weight: var(--fw-light);
+}
+
+button {
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  color: var(--f-color);
+  font-weight: var(--fw-bold);
+}
+
+button:hover {
+  background: hsla(332, 100%, 64%, 1);
+
+  background: linear-gradient(
+    45deg,
+    hsla(332, 100%, 64%, 1) 0%,
+    hsla(4, 100%, 67%, 1) 50%
+  );
+
+  background: -moz-linear-gradient(
+    45deg,
+    hsla(332, 100%, 64%, 1) 0%,
+    hsla(4, 100%, 67%, 1) 50%
+  );
+
+  background: -webkit-linear-gradient(
+    45deg,
+    hsla(332, 100%, 64%, 1) 0%,
+    hsla(4, 100%, 67%, 1) 50%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF459C", endColorstr="#FF6257", GradientType=1 );
+
+}
+
+label{
+  font-weight: var(--fw-bold);
+}
+
+.error-label{
+  color: var(--pr-color)
+}
+
+.error-input{
+  border-color:  #D63301 !important;
+  background-color: #FFCCBA !important;
+}
+
+.error-input::placeholder{
+  color: var(--pr-color);
+}
+
+.main-container {
+  background-color: var(--f-color);
+}
+
+.newsletter-header > ul {
+  list-style-image: url(../image/icon-list.svg);
+}
+
+.newsletter-form > label {
+  font-weight: var(--fw-bold);
+}
+
+.newsletter-title {
+  font-weight: var(--fw-bold);
+}
+
+.newsletter-form > input {
+  background-color: var(--f-color);
+  border: 1px solid var(--f-light-color);
+}
+
+.newsletter-form > input {
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .Absolute-Center {
+    border-radius: 20px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .Absolute-Center.is-Responsive {
+    width: 100%;
+    height: 60%;
+    max-width: 800px;
+    padding: 40px;
+  }
+
+  .main-content {
+    width: 400px;
+  }
+  .main-content > * {
+    padding-inline: 24px;
+    padding-block: var(--padding);
+  }
+  .newsletter-title {
+    padding-block: var(--padding);
+  }
+  .newsletter-para {
+    padding-bottom: 12px;
+  }
+  .newsletter-list {
+    padding-inline: 24px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media (max-width: 768px) {
+  button {
+    margin: 16px;
+  }
+  .newsletter-header > ul {
+    margin-inline: 28px;
+  }
+
+  .newsletter-header > * {
+    padding-block: var(--padding);
+    padding-inline: var(--padding);
+  }
+
+  .newsletter-form > *:not(:first-child) {
+    padding-block: var(--padding);
+    padding-inline: var(--padding);
+  }
+
+  .email-label{
+    margin-inline: var(--padding);
+  }
+
+  .newsletter-form > input {
+    margin-inline: var(--padding);
+  }
 }
+
+/* sucess page */
+
+.sucess-email-bold {
+  font-weight: var(--fw-bold);
+}
+
+@media (min-width: 786px) {
+  .Absolute-Center-sucess {
+    border-radius: 20px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .Absolute-Center-sucess.is-Responsive-sucess {
+    width: 50%;
+    height: 40%;
+    max-width: 400px;
+    padding: 40px;
+  }
+}
+
+@media (max-width: 786px) {
+  .sucess-header > * {
+    margin-block: 12px;
+  }
+
+  .sucess-header {
+    margin-inline: var(--padding);
+  }
+}
+
